@@ -1,0 +1,22 @@
+volumes:
+  redis-data:
+  services:
+    basketdb:
+        container-name: basketdb
+        restart: always
+        port:
+            -6379:6379
+        command: ["redis-server","--appendonly","yes"]
+        volumes:
+            -redis-data:/data
+    redis-commander:
+        container-name: radis-commander
+        restart: always
+        environment:
+            - REDIS-HOSTS=local:basketdb:6379
+            - HTTP-USER=root
+            - HTTP-PASWORD=secret
+        ports:
+            -8081:8081
+        depends-on:
+            - basketdb

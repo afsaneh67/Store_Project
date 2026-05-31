@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  basketdb:
+    image: redis:latest
+  redis_commander:
+    image: redisCommander/redis_Commander:latest
+
