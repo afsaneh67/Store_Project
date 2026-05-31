@@ -13,7 +13,7 @@ namespace Application
 {
     public static class ConfigureService
     {
-        //test
+        //test2
         public static void AddApplicationServices(this IServiceCollection services)
         {
             services.AddMediatR(Assembly.GetExecutingAssembly());
